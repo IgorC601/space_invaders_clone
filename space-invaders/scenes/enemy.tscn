@@ -1,0 +1,57 @@
+[gd_scene load_steps=10 format=3 uid="uid://dq57hyynovwt8"]
+
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_f2nde"]
+[ext_resource type="Texture2D" uid="uid://s51hb4k4yrsf" path="res://assets/sprites/SpaceInvaders.png" id="1_jq08u"]
+[ext_resource type="PackedScene" uid="uid://dw7t6vuot3bvo" path="res://scenes/health_component.tscn" id="2_446sc"]
+[ext_resource type="PackedScene" uid="uid://4fterxwv7i7j" path="res://scenes/hitbox_component.tscn" id="3_6863i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_swdaw"]
+atlas = ExtResource("1_jq08u")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pmk0c"]
+atlas = ExtResource("1_jq08u")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mgn6s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_swdaw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pmk0c")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k8r3o"]
+size = Vector2(11, 10)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8cqot"]
+radius = 5.0
+
+[node name="Enemy" type="CharacterBody2D"]
+scale = Vector2(2, 2)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_f2nde")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_mgn6s")
+animation = &"move"
+autoplay = "move"
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_k8r3o")
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_446sc")]
+MAX_HEALTH = 1
+
+[node name="HitboxComponent" parent="." instance=ExtResource("3_6863i")]
+
+[node name="Hitbox" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("CircleShape2D_8cqot")

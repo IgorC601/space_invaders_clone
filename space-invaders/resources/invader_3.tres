@@ -1,0 +1,31 @@
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://ddp3bbnwoggwm"]
+
+[ext_resource type="Texture2D" uid="uid://s51hb4k4yrsf" path="res://assets/sprites/SpaceInvaders.png" id="1_gp3na"]
+[ext_resource type="Script" path="res://resources/invader_config.gd" id="3_mvwfc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wlovp"]
+atlas = ExtResource("1_gp3na")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pki16"]
+atlas = ExtResource("1_gp3na")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j4rln"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wlovp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pki16")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("3_mvwfc")
+frames = SubResource("SpriteFrames_j4rln")
+points = 10

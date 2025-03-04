@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dw87bf7f3byt5"]
+
+[ext_resource type="PackedScene" uid="uid://chqv6cmxbjkt1" path="res://scenes/player.tscn" id="1_2uo0v"]
+[ext_resource type="PackedScene" uid="uid://bsng5w8ao7e5y" path="res://scenes/wall.tscn" id="2_cd7pn"]
+[ext_resource type="PackedScene" uid="uid://dhy31nviwwoid" path="res://scenes/spawner.tscn" id="3_5r6m8"]
+
+[node name="Stage1" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_2uo0v")]
+position = Vector2(341, 430)
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="Wall" parent="Walls" instance=ExtResource("2_cd7pn")]
+position = Vector2(352, -11)
+
+[node name="Wall2" parent="Walls" instance=ExtResource("2_cd7pn")]
+position = Vector2(715, 329)
+rotation = 1.5708
+
+[node name="Wall3" parent="Walls" instance=ExtResource("2_cd7pn")]
+position = Vector2(-12, 329)
+rotation = 1.5708
+
+[node name="Spawner" parent="." instance=ExtResource("3_5r6m8")]
