@@ -1,8 +1,19 @@
 extends CharacterBody2D
-
 class_name Invader
 
 var config: Resource
 
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+
 func _ready() -> void:
-	$AnimatedSprite2D.sprite_frames = config.frames
+	scale = config.scale
+	animated_sprite_2d.sprite_frames = config.frames
+	animated_sprite_2d.name = config.animation_name
+	animated_sprite_2d.play(config.animation_name, 0.5)
+
+func _process(delta: float) -> void:
+	velocity = Vector2.ZERO
+	var collision = move_and_collide(velocity)
+	if collision:
+		print("It hit")
+	

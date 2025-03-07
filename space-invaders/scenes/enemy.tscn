@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://dq57hyynovwt8"]
 
-[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_f2nde"]
+[ext_resource type="Script" uid="uid://b4aehbxf63oqy" path="res://scripts/enemy.gd" id="1_f2nde"]
 [ext_resource type="Texture2D" uid="uid://s51hb4k4yrsf" path="res://assets/sprites/SpaceInvaders.png" id="1_jq08u"]
 [ext_resource type="PackedScene" uid="uid://dw7t6vuot3bvo" path="res://scenes/health_component.tscn" id="2_446sc"]
 [ext_resource type="PackedScene" uid="uid://4fterxwv7i7j" path="res://scenes/hitbox_component.tscn" id="3_6863i"]
@@ -24,7 +24,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"move",
-"speed": 5.0
+"speed": 3.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k8r3o"]
@@ -34,7 +34,6 @@ size = Vector2(11, 10)
 radius = 5.0
 
 [node name="Enemy" type="CharacterBody2D"]
-scale = Vector2(2, 2)
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_f2nde")
@@ -43,6 +42,7 @@ script = ExtResource("1_f2nde")
 sprite_frames = SubResource("SpriteFrames_mgn6s")
 animation = &"move"
 autoplay = "move"
+frame_progress = 0.188745
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0)

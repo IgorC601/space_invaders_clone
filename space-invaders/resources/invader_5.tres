@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=6 format=3 uid="uid://622t2kg1bse0"]
 
 [ext_resource type="Texture2D" uid="uid://s51hb4k4yrsf" path="res://assets/sprites/SpaceInvaders.png" id="1_qtsgu"]
-[ext_resource type="Script" path="res://resources/invader_config.gd" id="3_1n4cs"]
+[ext_resource type="Script" uid="uid://6dek0aykrwh8" path="res://resources/invader_config.gd" id="3_1n4cs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f2sjv"]
 atlas = ExtResource("1_qtsgu")
@@ -28,5 +28,6 @@ animations = [{
 [resource]
 script = ExtResource("3_1n4cs")
 frames = SubResource("SpriteFrames_qh8vw")
-scale = 2.0
 points = 50
+scale = Vector2(2, 2)
+animation_name = ""

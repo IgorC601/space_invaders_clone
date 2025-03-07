@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://chqv6cmxbjkt1"]
 
 [ext_resource type="Texture2D" uid="uid://s51hb4k4yrsf" path="res://assets/sprites/SpaceInvaders.png" id="1_13b56"]
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_o5yrp"]
+[ext_resource type="Script" uid="uid://ctyif4jtiv2xg" path="res://scripts/player.gd" id="1_o5yrp"]
 [ext_resource type="PackedScene" uid="uid://dw7t6vuot3bvo" path="res://scenes/health_component.tscn" id="2_oftho"]
 [ext_resource type="PackedScene" uid="uid://4fterxwv7i7j" path="res://scenes/hitbox_component.tscn" id="3_3enc2"]
 
