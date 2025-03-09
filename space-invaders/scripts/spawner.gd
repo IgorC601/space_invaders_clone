@@ -3,10 +3,10 @@ extends Node2D
 class_name Spawner
 
 const ROWS = 5
-const COLS = 1#11
+const COLS = 1 #11
 const X_MARGIN = 30
 const X_START = 190
-const X_INCRE = 10
+var X_INCRE = 30
 var Y_INCRE = 30
 
 @onready var movement_timer: Timer = $MovementTimer
@@ -29,6 +29,7 @@ var invader_dict = {
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
 	movement_timer.timeout.connect(move_invaders)
 	
 	for r in ROWS:
@@ -48,3 +49,5 @@ func move_invaders() -> void:
 	var direction = 1
 	position.x += X_INCRE * direction
 	# Its moving now make it collide and go down and change direction
+
+	
