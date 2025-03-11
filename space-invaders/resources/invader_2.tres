@@ -31,3 +31,5 @@ frames = SubResource("SpriteFrames_nhmd0")
 points = 30
 scale = Vector2(2, 2)
 animation_name = ""
+left_ray_vec = Vector2(-20, 0)
+right_ray_vec = Vector2(20, 0)

@@ -31,3 +31,5 @@ frames = SubResource("SpriteFrames_0w4wa")
 points = 20
 scale = Vector2(2, 2)
 animation_name = ""
+left_ray_vec = Vector2(-20, 0)
+right_ray_vec = Vector2(20, 0)

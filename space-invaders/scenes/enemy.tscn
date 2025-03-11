@@ -48,6 +48,14 @@ frame_progress = 0.188745
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_k8r3o")
 
+[node name="RightRayCast" type="RayCast2D" parent="."]
+target_position = Vector2(-20, 0)
+collision_mask = 2
+
+[node name="LeftRayCast" type="RayCast2D" parent="."]
+target_position = Vector2(20, 0)
+collision_mask = 2
+
 [node name="HealthComponent" parent="." instance=ExtResource("2_446sc")]
 MAX_HEALTH = 1
 
