@@ -26,7 +26,8 @@ shape = SubResource("RectangleShape2D_endkv")
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_oftho")]
 
-[node name="HitboxComponent" parent="." instance=ExtResource("3_3enc2")]
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_3enc2")]
+health_component = NodePath("../HealthComponent")
 
 [node name="Hitbox" type="CollisionShape2D" parent="HitboxComponent"]
 shape = SubResource("RectangleShape2D_qb27s")

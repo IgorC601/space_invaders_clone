@@ -112,4 +112,4 @@ func check_collision() -> void:
 			if direction < 0 and !colliding:
 				colliding = e.left_wall_collision()
 			elif direction > 0 and !colliding:
-				colliding = e.right_wall_collision()
+ 				colliding = e.right_wall_collision()

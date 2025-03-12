@@ -8,8 +8,6 @@ var colliding := false
 @onready var left_ray_cast: RayCast2D = $LeftRayCast
 @onready var right_ray_cast: RayCast2D = $RightRayCast
 
-signal left_collision
-signal right_collision
 
 func _ready() -> void:
 	scale = config.scale
