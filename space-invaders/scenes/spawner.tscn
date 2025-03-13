@@ -9,4 +9,8 @@ script = ExtResource("1_j0b5c")
 wait_time = 0.4
 autostart = true
 
+[node name="ShootCountdown" type="Timer" parent="."]
+wait_time = 1.5
+autostart = true
+
 [connection signal="timeout" from="MovementTimer" to="." method="_on_movement_timer_timeout"]

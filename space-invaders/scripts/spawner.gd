@@ -16,6 +16,7 @@ var cols : Dictionary
 
 @onready var movement_timer: Timer = $MovementTimer
 @onready var row_interval: Timer = $RowInterval
+@onready var shoot_countdown: Timer = $ShootCountdown
 
 # - Invader Configurations
 var invader_1_res = preload("res://resources/invader_1.tres")
@@ -37,7 +38,9 @@ var invader_dict = {
 # - Functions
 func _ready() -> void:
 	create_grid()
-
+	
+	shoot_countdown.timeout.connect(random_enemy_shoot)
+	
 	movement_timer.timeout.connect(move_grid)
 
 
@@ -112,4 +115,25 @@ func check_collision() -> void:
 			if direction < 0 and !colliding:
 				colliding = e.left_wall_collision()
 			elif direction > 0 and !colliding:
- 				colliding = e.right_wall_collision()
+				colliding = e.right_wall_collision()
+
+
+func remove_inv_from_grid(enemy: Invader) -> void:
+	for r in rows:
+		var enemy_array = rows[r].enemies
+		if enemy in enemy_array:
+			rows[r].remove_enemy(enemy)
+	
+	for c in cols:
+		var enemy_array = cols[c].enemies
+		if enemy in enemy_array:
+			cols[c].remove_enemy(enemy)
+			
+
+func pick_random(dictionary: Dictionary) -> Invader:
+	var random_key = dictionary.keys().pick_random()
+	return dictionary[random_key].enemies.pick_random()
+	
+func random_enemy_shoot() -> void:
+	var rand_enemy = pick_random(rows)
+	rand_enemy.shoot()

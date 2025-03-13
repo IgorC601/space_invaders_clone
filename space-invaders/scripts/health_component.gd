@@ -4,7 +4,7 @@ class_name HealthComponent
 @export var MAX_HEALTH := 3
 var health: int
 
-signal death_trigger
+signal death_trigger(enemy: Invader)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,11 +14,7 @@ func damage(attack: Attack) -> void:
 	health -= attack.attack_damage
 	
 	if health <= 0:
-		# THIS IS WHAT YOU NEED TO DO:
-		# When enemies die they need to be removed from its respective
-		# row and col so that when the collision check is made it doesnt produce
-		# an null instance error
-		death_trigger.emit()
+		death_trigger.emit(get_parent())
 		death()
 
 func death() -> void:

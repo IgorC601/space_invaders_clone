@@ -1,5 +1,6 @@
 extends Projectile
-class_name Bullet
+class_name Bomb
+
 
 func _physics_process(delta: float) -> void:
 	super(delta)

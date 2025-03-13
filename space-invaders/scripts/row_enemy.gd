@@ -9,3 +9,6 @@ func move(x_incre: int, direction: int) -> void:
 
 func add_enemy(enemy: Invader) -> void:
 	enemies.append(enemy)
+
+func remove_enemy(enemy: Invader) -> void:
+	enemies.erase(enemy)
